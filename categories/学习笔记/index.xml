@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>学习笔记 on Nepl1t Sewing Factory</title><link>https://nepl1t.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link><description>Recent content in 学习笔记 on Nepl1t Sewing Factory</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 02 Nov 2023 16:43:23 +0800</lastBuildDate><atom:link href="https://nepl1t.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>MITMS01_课程概述与Shell</title><link>https://nepl1t.github.io/p/mitms01_%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%BF%B0%E4%B8%8Eshell/</link><pubDate>Thu, 02 Nov 2023 16:43:23 +0800</pubDate><guid>https://nepl1t.github.io/p/mitms01_%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%BF%B0%E4%B8%8Eshell/</guid><description>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">本文配置环境为 Windows 11 64位下的 Git Bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="界面介绍date-echo-pwd-which-命令文件路径">界面介绍，date echo pwd which 命令，文件路径&lt;/h2>
+&lt;p>打开终端如下图&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2023/11/19/2TuLFPidGEzcD5Y.png"
+loading="lazy"
+alt="打开界面"
+>&lt;/p>
+&lt;p>其告诉你：你的用户名为Azusaislit，主机名为Roboride-Portab&lt;/p>
+&lt;p>运行 date 程序，显示出当前时间&lt;/p>
+&lt;p>可以在执行运行程序的命令的同时传递参数，比如运行 echo 程序的同时传递参数 Hello，这将会在你的终端输出 Hello&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2023/11/19/ELNOkfhXApiI7rR.png"
+loading="lazy"
+alt="date与echo指令"
+>&lt;/p>
+&lt;p>如果希望传递的参数中包含空格（例如一个名为 My Photos 的文件夹），您要么用使用单引号&lt;code>'My Photos'&lt;/code>，双引号将其包裹起来 &lt;code>&amp;quot;My Photos&amp;quot;&lt;/code> ，要么使用转义符号 &lt;code>\&lt;/code> 进行处理（&lt;code>My\ Photos&lt;/code>）。&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2023/11/19/hJ6OWlPdZsvTo1i.png"
+loading="lazy"
+alt="转义符空格"
+>&lt;/p>
+&lt;p>&lt;strong>环境变量&lt;/strong> 是 shell 确定程序位置的一个基本方法，它就像编程语言的一种变量（实际上 shell 就是一种编程语言，可以用来编程，后面可以来写脚本）。它是在启动 shell 的时候就已经设置好了的，不需要用户每次手动配置&lt;/p>
+&lt;p>&lt;strong>路径变量&lt;/strong> &lt;code>$PATH&lt;/code> 是一类重要的环境变量：如果你要求 shell 执行某个指令，但是该指令并不是 shell 所了解的编程关键字，那么它会去咨询 &lt;em>环境变量&lt;/em> &lt;code>$PATH&lt;/code>，其会列出当 shell 接到某条指令时，进行程序搜索的路径&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2023/11/19/BW5igyx4rUhM8va.png"
+loading="lazy"
+alt="PATH环境变量"
+>&lt;/p>
+&lt;p>这是由冒号所分割的路径列表。电脑在&lt;code>$PATH&lt;/code>寻找并尝试匹配你所需要的程序。&lt;/p>
+&lt;p>运行程序可以直接输入程序名称，让 shell 从 &lt;code>$PATH&lt;/code> 中寻找它，或者通过程序的&lt;strong>绝对路径&lt;/strong>来运行&lt;/p>
+&lt;p>绝对路径是完全可以确定文件位置的路径&lt;/p>
+&lt;p>相对路径是&lt;strong>相对你所在路径&lt;/strong>的路径。利用 &lt;code>pwd&lt;/code> 命令可以查看当前所在的路径&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2023/11/19/fM8tC6np9i4wL72.png"
+loading="lazy"
+alt="pwd命令"
+>&lt;/p>
+&lt;p>其告诉我我正位于 &lt;code>C:\Users\Azusaislit&lt;/code> 文件夹中（我目前使用Windows系统下的Bash shell）&lt;/p>
+&lt;p>而切换目录需要使用 &lt;code>cd&lt;/code> 命令。在路径中，&lt;code>.&lt;/code> 表示的是当前目录，而 &lt;code>..&lt;/code> 表示上级目录&lt;/p>
+&lt;p>如果我们想知道所运行的程序是哪一个，我们可使用 &lt;code>which&lt;/code> 命令&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2023/11/19/u1cHqRL6dMaWoGm.png"
+loading="lazy"
+alt="which命令的使用"
+>&lt;/p>
+&lt;p>即运行的 &lt;code>echo&lt;/code> 程序位于 &lt;code>/usr/bin/echo&lt;/code>&lt;/p>
+&lt;p>在Windows上，每个分区都有一个根目录，每个分区都有一个单独的路径结构： &lt;code>C:\&lt;/code> &lt;code>D:\&lt;/code>，而这样的路径用&lt;strong>反斜杠&lt;/strong>分割&lt;/p>
+&lt;p>在Linux和MacOS，所有内容都属于根命名空间内，所有绝对路径都由 &lt;code>/&lt;/code> 开头，路径用&lt;strong>正斜杠&lt;/strong>分割。&lt;/p>
+&lt;h2 id="ls命令与文件权限">ls命令与文件权限&lt;/h2>
+&lt;p>为了查看指定目录下包含哪些文件，我们使用 &lt;code>ls&lt;/code> 命令：&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2023/11/19/gLTv57xzQAuMstk.png"
+loading="lazy"
+alt="ls命令"
+>&lt;/p>
+&lt;p>这告诉我们 &lt;code>C:\Users\Azusaislit\Pictures&lt;/code> 路径下的所有文件夹（蓝色字体）与文件（白色字体）
+使用 &lt;code>ls -l&lt;/code> 命令会给我们有关这些文件夹与文件的更多信息&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2023/11/19/dUFeaSlBOAWQ3wp.png"
+loading="lazy"
+alt="更详细的文件显示"
+>&lt;/p>
+&lt;p>在某些条目的开头的 &amp;ldquo;d&amp;rdquo; 表示这些条目是一个目录，因此我们可知道 &lt;code>'Camera Roll'&lt;/code> 条目 是一个目录，而 &lt;code>desktop.ini&lt;/code> 是一个文件。
+之后的9个字母表示该文件或目录的权限：有 &amp;ldquo;r&amp;rdquo; 意思是读取权限，有 &amp;ldquo;w&amp;rdquo; 意思是写入权限，有 &amp;ldquo;x&amp;rdquo; 意思是执行权限。&lt;/p>
+&lt;p>如 &lt;code>r-x&lt;/code> 意思是你拥有读取与执行权限，但没有写入权限。
+而对目录来说，这些权限含义&lt;/p>
+&lt;ul>
+&lt;li>读取 -&amp;gt; 查看目录的文件列表&lt;/li>
+&lt;li>写入 -&amp;gt; 在目录中&lt;strong>创造、重命名、删除&lt;/strong>文件。
+（如果你有文件 &lt;code>/usr/bin/programA/config.yoml&lt;/code> 的写入权限，但没有目录 &lt;code>/usr/bin/programA&lt;/code> 的写入权限，这意味着你可以对 该yoml本身内容进行操作，却不能重命名它、或者删除它）&lt;/li>
+&lt;li>执行 -&amp;gt; &amp;ldquo;搜索&amp;quot;权限，是否允许进入该目录。如果你要进入一个目录，你需要在 &lt;strong>该目录及其所有的直系父目录上&lt;/strong> 都拥有执行权限&lt;/li>
+&lt;/ul>
+&lt;p>前三个字符是为文件所有者（这里是Azusaislit）所设置的权限
+中间三个字符是为拥有该文件的组设置的权限
+最后三个字符是其他人的权限列表&lt;/p>
+&lt;p>对于 &lt;code>cd&lt;/code> 命令有两个特殊符号较常用：&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>cd ~&lt;/code> 将切换到主目录（不是根目录）&lt;/li>
+&lt;li>&lt;code>cd -&lt;/code> 将切换到你之前所在的目录&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://s2.loli.net/2023/11/19/62JwVCykbcAdvZI.png"
+loading="lazy"
+alt="几个常用的cd命令技巧"
+>&lt;/p>
+&lt;p>如图，通过 &lt;code>cd -&lt;/code> 我们实现了在 &lt;code>~/pictures&lt;/code> 与 &lt;code>~&lt;/code> 之间相互切换&lt;/p>
+&lt;h2 id="mv-cp-rm-mkdir-man-指令">mv cp rm mkdir man 指令&lt;/h2>
+&lt;p>&lt;code>mv&lt;/code> 命令可以 &lt;strong>移动文件&lt;/strong> ，也可以 &lt;strong>重命名文件&lt;/strong>&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2023/11/19/mN8bkKRiJwUf2T7.png"
+loading="lazy"
+alt="mv命令移动文件"
+>&lt;/p>
+&lt;p>利用 &lt;code>mv&lt;/code> 命令将当前所在路径下的一个 &lt;code>broke.txt&lt;/code> 重命名为 &lt;code>up.txt&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2023/11/19/JEH3Qh2IpO7Ccwm.png"
+loading="lazy"
+alt="mv命令重命名文件"
+>&lt;/p>
+&lt;p>利用 &lt;code>mv&lt;/code> 命令将位于 &lt;code>D:\ST2&lt;/code> 的 &lt;code>hello.txt&lt;/code> 转移到 &lt;code>D:\Shell_test&lt;/code> 目录&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2023/11/19/kCUgRBhw8GOezal.png"
+loading="lazy"
+alt="mv命令重命名同时移动文件"
+>&lt;/p>
+&lt;p>同样 &lt;strong>重命名&lt;/strong> 和 &lt;strong>移动&lt;/strong> 操作 &lt;strong>可以同时进行&lt;/strong>&lt;/p>
+&lt;p>还有 &lt;code>cp&lt;/code> 命令可用于复制文件，用法类似 &lt;code>mv&lt;/code> ，也可以用来重命名文件&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2023/11/19/OuSvPKxQ82cDid3.png"
+loading="lazy"
+alt="cp命令复制并重命名文件"
+>&lt;/p>
+&lt;p>&lt;code>rm&lt;/code> 命令可以用来删除文件，但在Linux上删除不会递归进行，因此不能用于删除目录。通常使用 &lt;code>rm -r&lt;/code> 或者 &lt;code>rmdir&lt;/code> 命令用于删除目录，但后者只能删除空目录。&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2023/11/19/iGFKaTx3zy4e6Xm.png"
+loading="lazy"
+alt="rm命令删除文件"
+>&lt;/p>
+&lt;p>&lt;code>mkdir&lt;/code> 命令用于创建目录。如果你要创建一个名为 &lt;code>My Photo&lt;/code> 的目录，您要么用使用单引号&lt;code>'My Photos'&lt;/code>，双引号将其包裹起来 &lt;code>&amp;quot;My Photos&amp;quot;&lt;/code> ，要么使用转义符号 &lt;code>\&lt;/code> 进行处理（&lt;code>My\ Photos&lt;/code>）。&lt;/p>
+&lt;p>&lt;code>man&lt;/code> 程序以另一个程序作为参数，并给出作为参数的程序的 manual pages。这比 &amp;ndash;help 指令通常更为实用。（Windows的bash不可用）&lt;/p>
+&lt;p>&lt;code>Ctrl + L&lt;/code> 是 &lt;code>cls&lt;/code> (Windows cmd) 或 &lt;code>clear&lt;/code> (Bash Shell) 的快捷键&lt;/p>
+&lt;h2 id="io重定向">IO重定向&lt;/h2>
+&lt;p>在 shell 中，程序有两个主要的“流”：它们的输入流和输出流。 当程序尝试读取信息时，它们会从输入流中进行读取，当程序打印信息时，它们会将信息输出到输出流中。 通常，一个程序的输入输出流都是您的终端。也就是，您的键盘作为输入，显示器作为输出。 但是，我们也可以重定向这些流！&lt;/p>
+&lt;p>最简单的重定向是 &lt;code>&amp;lt; file&lt;/code> ：表示将要运行的程序的输入重定向为 &lt;code>file&lt;/code> 文件的内容（&lt;code>file&lt;/code> 代替输入）
+和 &lt;code>&amp;gt; file&lt;/code> ：表示将程序的输出重定向到 &lt;code>file&lt;/code> 文件中（将 &lt;code>file&lt;/code> 用于输出结果）&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2023/11/19/yeQAnZ4rvYzRmNC.png"
+loading="lazy"
+alt="ioredirect1"
+>&lt;/p>
+&lt;p>&lt;code>cat&lt;/code> 命令的作用是打印文件的内容。我们可以看到 &lt;code>echo&lt;/code> 命令的结果被写入到 &lt;code>hello.txt&lt;/code> 中了。&lt;/p>
+&lt;p>&lt;img src="https://s2.loli.net/2023/11/19/Ii6wtaOXDWv9MY4.png"
+loading="lazy"
+alt="ioredirect2"
+>&lt;/p>
+&lt;p>利用 &lt;code>cat&lt;/code> 命令也重定向输入输出：从 &lt;code>hello.txt&lt;/code> 读取内容，并输出在 &lt;code>hate.txt&lt;/code> 中。最后一个 &lt;code>cat&lt;/code> 命令中输出没有重定向，其内容默认输出在终端上。&lt;/p>
+&lt;p>&lt;code>|&lt;/code> 操作符允许我们将一个程序的输出和另外一个程序的输入连接起来: &lt;code>A | B&lt;/code> 即将 A 程序的输出作为 B程序的输入。&lt;code>|&lt;/code> 的使用可以嵌套。
+``
+&lt;code>tail&lt;/code>&lt;/p>
+&lt;p>&lt;code>sudo su&lt;/code> 将终端切换到 ROOT终端&lt;/p>
+&lt;p>&lt;code>tee&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">echo 1060 | sudo tee brightness
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>或者&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo su
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">echi 1060 &amp;gt; brightness
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>find&lt;/code> 文件&lt;/p>
+&lt;p>&lt;code>xdg-open file&lt;/code> 命令可以用合适的程序打开 &lt;code>file&lt;/code> 文件。&lt;/p></description></item></channel></rss>
